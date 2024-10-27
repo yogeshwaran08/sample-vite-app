@@ -1,0 +1,25 @@
+[phases]
+
+# Install dependencies
+[phases.setup]
+run = "npm install"
+
+# Build the Vite app
+[phases.build]
+run = "npm run build"
+
+# Use a lightweight static file server to serve the dist folder
+[phases.start]
+run = "npx serve dist -l 3000"  # Serve on port 3000
+
+[env]
+# Define any environment variables your app needs here
+VITE_API_URL = "https://your-api-url.com"
+
+[static]
+# Specify the output directory for the static build files
+publish_dir = "dist"
+
+[ports]
+# Port to expose (matches the port used in the start command)
+start = 3000
